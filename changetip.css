@@ -1,0 +1,71 @@
+#changetip-tip-section {
+	position: fixed;
+    bottom: 20px;
+    width: 65px;
+    height:65px;
+    border: 3px black;
+    right:20px;
+
+    background: #053962;
+    line-height: 2;
+    text-align: center;
+    color: #042E64;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+    /*text-shadow: 0 1px 0 #84BAFF;*/
+    box-shadow: 0 0 15px #00214B
+
+}
+
+#changetip-tip-section img {
+    width:40px;
+    vertical-align:middle;
+    z-index: 99999;
+}
+
+#changetip-tip-section textarea {
+    margin-top: 10px;
+    width:80%;
+    height:80px;
+    font-size:30px !important;
+    color:#053962;
+    line-height: 30px;
+    text-align:center;
+}
+
+#changetip-tip-section input {
+    width:100px;
+    color:#053962;
+    bottom:200px !important;
+}
+
+.changetip-tip-icon {
+    /*position: absolute;
+    background: url(https://cdn.changetip.com/img/logos/changetip_round_icon.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 2900%;
+    height: 50px;
+    width: 50px;
+    left: -100%;
+    top: -100%;*/
+    width:16px;
+    height:16px;
+}
+
+.chnagetip-tip-icon-soundcloud {
+    margin-top: 1px;
+}
+
+.soundcloud-container-div {
+     display: inline-block;
+}
+
+.stocktwits-tip-icon {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-size: 16px 12px;
+}
