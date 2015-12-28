@@ -1,12 +1,12 @@
 {
   "name": "Changetip Tip Button",
-  "description": "Tip anyone online!",
-  "version": "1.0",
+  "description": "A Love Button for the Internet",
+  "version": "1.0.1",
   "permissions": ["tabs", "storage"
   ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["*://*.twitter.com/*", "*://*.soundcloud.com/*", "*://*.reddit.com/*", "*://*.slack.com/*"],
       "js": ["jquery.min.js", "changetip.js"],
       "css": ["changetip.css"]
     }
@@ -16,7 +16,7 @@
     "page": "background.html"
      },
   "options_page": "options.html",
-  "web_accessible_resources": ["img/dollar_sign.png", "img/dollar_sign_hover.png", "jquery.min.js", "img/dollar_sign_soundcloud.png"],
+  "web_accessible_resources": ["img/bitcoin_logo.png", "img/bitcoin_logo_hover.png", "jquery.min.js", "img/dollar_sign_soundcloud.png"],
   "manifest_version": 2,
   "browser_action": {
     "default_title": "Changetip Extension",

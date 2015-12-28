@@ -12,15 +12,15 @@ $( document ).ready(function() {
     if(urlContains("twitter.com")) {
 
         $(".ProfileTweet-action--favorite").each(function() { //add tip button to tweets
-            $(this).after( '<div class="ProfileTweet-action"> <button class="ProfileTweet-actionButton u-textUserColorHover js-actionButton js-actionReply changetip-tip-sendtip" type="button"> <div class="IconContainer js-tooltip" title="Tip"><img src="' +  chrome.extension.getURL('img/dollar_sign.png') + '" class="changetip-tip-icon" ></img></button></div>' );
+            $(this).after( '<div class="ProfileTweet-action"> <button class="ProfileTweet-actionButton u-textUserColorHover js-actionButton js-actionReply changetip-tip-sendtip" type="button"> <div class="IconContainer js-tooltip" title="Tip"><img src="' +  chrome.extension.getURL('img/bitcoin_logo.png') + '" class="changetip-tip-icon" ></img></button></div>' );
 
             $(".changetip-tip-icon")
                 .mouseover(function() { 
-                    var src = chrome.extension.getURL('img/dollar_sign_hover.png')
+                    var src = chrome.extension.getURL('img/bitcoin_logo_hover.png')
                     $(this).attr("src", src);
                 })
                 .mouseout(function() {
-                    var src = chrome.extension.getURL('img/dollar_sign.png')
+                    var src = chrome.extension.getURL('img/bitcoin_logo.png')
                     $(this).attr("src", src);
                 });
           });
@@ -76,15 +76,19 @@ $( document ).ready(function() {
         });
         
     } else if(urlContains("slack.com")) {
-        $(".ts_icon_add_reaction").each(function() {
-            $(this).after('<a class="ts_icon ts_tip ts_tip_top ts_tip_float ts_tip_delay_600 ts_tip_hidden changetip-tip-button">$<span class="ts_tip_tip">Tip</span></a>');
-        })
+        setTimeout(
+            function() {
+                $(".ts_icon_add_reaction").each(function() {
+                    $(this).after('<a class="ts_icon ts_tip ts_tip_top ts_tip_float ts_tip_delay_600 ts_tip_hidden changetip-tip-button">$<span class="ts_tip_tip">Tip</span></a>');
+                })
 
-        $(".changetip-tip-button").each(function() {
-            $(this).click(function() {
-                addSlackTip(this);
-            });
-        });
+                $(".changetip-tip-button").each(function() {
+                    $(this).click(function() {
+                        addSlackTip(this);
+                    });
+                });
+            },
+        100);
     }
 
 });
