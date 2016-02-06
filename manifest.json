@@ -1,7 +1,7 @@
 {
-  "name": "Changetip Tip Button",
+  "name": "ChangeTip Tip Button",
   "description": "A Love Button for the Internet",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "permissions": ["tabs", "storage"
   ],
   "content_scripts": [

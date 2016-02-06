@@ -1,5 +1,3 @@
-CHANGETIP_ICON_HTML = "<img id='changetip-tip-section-img' style='cursor:pointer' src='https://cdn.changetip.com/img/logos/changetip_round_icon.png'/>"
-
 if(urlContains("soundcloud.com") || urlContains("www.youtube.com")) { //include jQuery
     var script = document.createElement('script');
     script.src = chrome.extension.getURL('jquery.min.js');
@@ -31,21 +29,19 @@ $( document ).ready(function() {
                 setTimeout( //tempory method to wait until animation completes
                     function() {
                         $("#tweet-box-template div").before("@Changetip, send ");
+                        $("#tweet-box-global div").before("@Changetip, send ");
                         chrome.storage.sync.get({
                             defaultTipAmount: '$1'
                           }, function(items) {
                             $("#tweet-box-template div").append(items.defaultTipAmount);
+                            $("#tweet-box-global div").append(items.defaultTipAmount);
+                        
                         });
+                        
                     },
                 100);
             });
         });
-
-        //add changetip tip button on user's profiles
-
-        $("body").append("<div id='changetip-tip-section'>" + CHANGETIP_ICON_HTML + "</div>");
-
-        document.getElementById("changetip-tip-section-img").addEventListener("click", composeTweet);
 
     } else if(urlContains("www.reddit.com")) {
         $(".reply-button").each(function() {
@@ -112,40 +108,6 @@ function addSlackTip(button) {
         $("#message-input").focus();
         $("#message-input").val("Changetip, send @" + username + " " + items.defaultTipAmount + "!");
     });
-}
-
-function composeTweet() {
-    $( "#changetip-tip-section" ).animate({
-      height: "250px",
-      width: "500px"
-    });
-
-    twitterUser = location.pathname.split('/')[1];
-
-    chrome.storage.sync.get({
-        defaultTipAmount: '$1'
-      }, function(items) {
-        
-        $("<div class='form-holder'><textarea id='changetip-tip-section-text'>@Changetip, send @" + twitterUser + " " + items.defaultTipAmount + "!</textarea><input type='submit' id='changetip-tip-section-post' value='Tweet'></input></div>").appendTo('#changetip-tip-section');
-
-        document.getElementById("changetip-tip-section-post").addEventListener("click", postTweet);
-
-    });
-
-    document.getElementById("changetip-tip-section-img").removeEventListener('click', composeTweet);
-    document.getElementById("changetip-tip-section-img").addEventListener("click", minimizeTweet);
-        
-}
-
-function minimizeTweet() {
-    $( "#changetip-tip-section" ).animate({
-      height: "65px",
-      width: "65px"
-    });
-
-    $("#changetip-tip-section").html(CHANGETIP_ICON_HTML);
-    document.getElementById("changetip-tip-section-img").removeEventListener('click', minimizeTweet);
-    document.getElementById("changetip-tip-section-img").addEventListener("click", composeTweet);
 }
 
 function postTweet() {
