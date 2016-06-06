@@ -1,0 +1,30 @@
+
+.ui-widget-header {
+	background-color: #528A68;
+}
+
+#dialog-form {
+
+	background-color: #DEF6E8;
+}
+
+.ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+
+fieldset input {
+	width:80%;
+}
+
+#recipient {
+	width:60%;
+}
+
+#amount {
+	width:150px;
+}
+
+html {
+	width:170px;
+	height:200px;
+}

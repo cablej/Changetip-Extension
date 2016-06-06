@@ -85,6 +85,23 @@ $( document ).ready(function() {
                 });
             },
         100);
+    } else if(urlContains("blab.im")) {
+        setTimeout(
+            function() {
+                $(".chat-list li").each(function() {
+                    $(this).find(".actions-block").append('<span class="inline-icon blab-changetip-icon"><img class="blab-changetip-img" src="' + chrome.extension.getURL('img/bitcoin_logo.png') + '"/></span>')
+                    
+                    /*.mouseover(function() { 
+                        var src = chrome.extension.getURL('img/bitcoin_logo_hover.png')
+                        $(this).attr("src", src);
+                    })
+                    .mouseout(function() {
+                        var src = chrome.extension.getURL('img/bitcoin_logo.png')
+                        $(this).attr("src", src);
+                    });*/
+                })
+            },
+        2000);
     }
 
 });
@@ -101,13 +118,14 @@ function addRedditTip(button) {
 
 function addSlackTip(button) {
     var username = $(button).closest(".message").find(".message_sender").text()
-    chrome.storage.sync.get({
+    /*chrome.storage.sync.get({
         defaultTipAmount: '$1'
       }, function(items) {
-
         $("#message-input").focus();
         $("#message-input").val("Changetip, send @" + username + " " + items.defaultTipAmount + "!");
-    });
+    });*/
+    var amount = prompt("Amount?")
+    sendTip(username + (username == "jackhcable" ? "@changetipwallet" : "@tippingforgood"), "Slack", amount, "")
 }
 
 function postTweet() {

@@ -2,12 +2,12 @@
   "name": "ChangeTip Tip Button",
   "description": "A Love Button for the Internet",
   "version": "1.0.2",
-  "permissions": ["tabs", "storage"
+  "permissions": ["tabs", "storage", "identity"
   ],
   "content_scripts": [
     {
-      "matches": ["*://*.twitter.com/*", "*://*.soundcloud.com/*", "*://*.reddit.com/*", "*://*.slack.com/*"],
-      "js": ["jquery.min.js", "changetip.js"],
+      "matches": ["*://*.twitter.com/*", "*://*.soundcloud.com/*", "*://*.reddit.com/*", "*://*.slack.com/*", "*://*.blab.im/*"],
+      "js": ["jquery.min.js", "changetip.js", "changetipOAUTH.js"],
       "css": ["changetip.css"]
     }
   ],
@@ -20,6 +20,6 @@
   "manifest_version": 2,
   "browser_action": {
     "default_title": "Changetip Extension",
-    "default_popup": "options.html"
+    "default_popup": "popup.html"
   }
 }

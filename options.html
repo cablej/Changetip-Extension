@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head><title>Changetip Extension Options</title></head>
+<head>
+<title>Changetip Extension Options</title>
+</head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="jquery-ui.css">
 <link rel="stylesheet" href="options.css">
 
 <body>
 
 <center>
+
+<p id="status"></p>
+
+
+<button id="login">Connect Changetip</button>
+
+<br><br>
+
 <p>Default tip amount:</p>
 
 <input type="text" id="default">
 
-<p id="status"></p>
+<br>
+<br>
+
 <button id="save">Save</button>
 
+
+<script src="jquery.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="changetipOAUTH.js"></script>
 <script src="options.js"></script>
+
 </center>
 </body>
 </html>

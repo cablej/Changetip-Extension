@@ -10,3 +10,8 @@ input {
 p {
     color: white;
 }
+
+button {
+	border-radius: 5px;
+	background-color: white;
+}
